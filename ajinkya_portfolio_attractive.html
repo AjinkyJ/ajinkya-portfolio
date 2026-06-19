@@ -1,0 +1,327 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+.pf{font-family:'Space Grotesk',var(--font-sans),sans-serif;color:var(--color-text-primary);background:transparent;}
+
+.hero{padding:3rem 0 2.5rem;position:relative;}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;
+  color:#1D9E75;text-transform:uppercase;margin-bottom:1.25rem;
+}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:1.5px;background:#1D9E75;}
+
+.hero-name{font-size:44px;font-weight:600;letter-spacing:-1.5px;line-height:1.1;margin-bottom:0.5rem;}
+.hero-name span{color:#1D9E75;}
+
+.hero-role{font-size:15px;color:var(--color-text-secondary);margin-bottom:1.5rem;line-height:1.6;}
+
+.hero-stats{display:flex;gap:2rem;margin-bottom:1.75rem;flex-wrap:wrap;}
+.stat-item{display:flex;flex-direction:column;}
+.stat-num{font-size:22px;font-weight:600;color:var(--color-text-primary);}
+.stat-label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--color-text-tertiary);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;}
+
+.hero-divider{width:100%;height:0.5px;background:var(--color-border-tertiary);margin-bottom:1.5rem;}
+
+.contact-row{display:flex;flex-wrap:wrap;gap:20px;font-size:13px;color:var(--color-text-secondary);align-items:center;}
+.contact-row a{color:#1D9E75;text-decoration:none;display:flex;align-items:center;gap:5px;}
+.contact-row span{display:flex;align-items:center;gap:5px;}
+.contact-row i{font-size:15px;}
+
+.section-head{
+  display:flex;align-items:center;gap:12px;
+  margin:2.5rem 0 1.25rem;
+}
+.section-head-line{flex:1;height:0.5px;background:var(--color-border-tertiary);}
+.section-head-label{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--color-text-tertiary);white-space:nowrap;
+}
+
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:0.5rem;}
+
+.pcard{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:14px;padding:0;overflow:hidden;
+  transition:border-color 0.2s;
+}
+.pcard:hover{border-color:var(--color-border-secondary);}
+
+.pcard-top{padding:1.25rem 1.25rem 1rem;}
+.pcard-accent{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:1rem;
+}
+.pcard-num{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;
+  color:var(--color-text-tertiary);letter-spacing:0.1em;
+}
+.pcard-icon{
+  width:32px;height:32px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+}
+.ic-blue{background:#E6F1FB;color:#185FA5;}
+.ic-teal{background:#E1F5EE;color:#0F6E56;}
+.ic-purple{background:#EEEDFE;color:#534AB7;}
+.ic-coral{background:#FAECE7;color:#993C1D;}
+
+@media(prefers-color-scheme:dark){
+  .ic-blue{background:#0C447C;color:#85B7EB;}
+  .ic-teal{background:#085041;color:#5DCAA5;}
+  .ic-purple{background:#3C3489;color:#AFA9EC;}
+  .ic-coral{background:#712B13;color:#F0997B;}
+}
+
+.pcard-title{font-size:14px;font-weight:600;margin-bottom:4px;line-height:1.4;}
+.pcard-platform{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--color-text-tertiary);margin-bottom:10px;}
+.pcard-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.65;}
+
+.pcard-footer{
+  padding:0.75rem 1.25rem;
+  border-top:0.5px solid var(--color-border-tertiary);
+  background:var(--color-background-secondary);
+  display:flex;flex-wrap:wrap;gap:6px;
+}
+
+.tag{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;
+  padding:3px 8px;border-radius:4px;font-weight:500;
+}
+.tg-blue{background:#E6F1FB;color:#0C447C;}
+.tg-teal{background:#E1F5EE;color:#085041;}
+.tg-purple{background:#EEEDFE;color:#3C3489;}
+.tg-coral{background:#FAECE7;color:#712B13;}
+@media(prefers-color-scheme:dark){
+  .tg-blue{background:#0C447C;color:#B5D4F4;}
+  .tg-teal{background:#085041;color:#9FE1CB;}
+  .tg-purple{background:#3C3489;color:#CECBF6;}
+  .tg-coral{background:#712B13;color:#F5C4B3;}
+}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:10px;margin-bottom:0.5rem;}
+.sblock{background:var(--color-background-secondary);border-radius:10px;padding:1rem;}
+.sblock-label{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;
+  text-transform:uppercase;color:#1D9E75;margin-bottom:6px;
+}
+.sblock-items{font-size:13px;color:var(--color-text-secondary);line-height:1.8;}
+
+.exp-block{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:12px;padding:1.25rem;
+  display:flex;align-items:flex-start;gap:1rem;
+  margin-bottom:0.5rem;
+}
+.exp-dot{
+  width:36px;height:36px;border-radius:10px;flex-shrink:0;
+  background:#E1F5EE;display:flex;align-items:center;justify-content:center;
+  color:#0F6E56;font-size:18px;
+}
+@media(prefers-color-scheme:dark){.exp-dot{background:#085041;color:#5DCAA5;}}
+.exp-org{font-size:14px;font-weight:600;margin-bottom:2px;}
+.exp-role{font-size:13px;color:var(--color-text-secondary);margin-bottom:4px;}
+.exp-date{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;
+  color:var(--color-text-tertiary);
+}
+
+.footer-bar{
+  padding:1.75rem 0 0.5rem;
+  border-top:0.5px solid var(--color-border-tertiary);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  align-items:center;
+}
+.footer-name{font-size:14px;font-weight:600;letter-spacing:-0.3px;}
+.footer-contact{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--color-text-tertiary);}
+</style>
+
+<h2 class="sr-only">Ajinkya Jadhav — Embedded Firmware Engineer Portfolio</h2>
+
+<div class="pf">
+
+  <div class="hero">
+    <div class="hero-eyebrow">Embedded Firmware Engineer</div>
+    <h1 class="hero-name">Ajinkya <span>Jadhav</span></h1>
+    <p class="hero-role">Building firmware for biomedical & radiation-monitoring devices under MeitY R&D programs<br>at C-DAC CINE · IIT Guwahati</p>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">2+</span>
+        <span class="stat-label">Years experience</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">4+</span>
+        <span class="stat-label">Devices shipped</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">5+</span>
+        <span class="stat-label">R&D proposals</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">3</span>
+        <span class="stat-label">MCU platforms</span>
+      </div>
+    </div>
+
+    <div class="hero-divider"></div>
+
+    <div class="contact-row">
+      <span><i class="ti ti-mail" aria-hidden="true"></i>jadhavajinkya1306@gmail.com</span>
+      <span><i class="ti ti-phone" aria-hidden="true"></i>+91-7774807127</span>
+      <a href="https://linkedin.com"><i class="ti ti-brand-linkedin" aria-hidden="true"></i>LinkedIn</a>
+      <span><i class="ti ti-map-pin" aria-hidden="true"></i>Guwahati, India</span>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <span class="section-head-label">Projects</span>
+    <div class="section-head-line"></div>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="pcard">
+      <div class="pcard-top">
+        <div class="pcard-accent">
+          <span class="pcard-num">01 · BLE Dosimeter</span>
+          <div class="pcard-icon ic-blue"><i class="ti ti-broadcast" aria-hidden="true"></i></div>
+        </div>
+        <p class="pcard-title">BLE 5.0 Radiation Dosimeter — Hub & Peripheral</p>
+        <p class="pcard-platform">STM32L162 · RN4871 · DMA · HAL</p>
+        <p class="pcard-desc">Wireless radiation monitoring with BLE hub and peripheral node. PIN diode sensor acquisition over DMA-driven UART pipeline with sleep modes for multi-year field life under MeitY R&D.</p>
+      </div>
+      <div class="pcard-footer">
+        <span class="tag tg-blue">STM32L162</span>
+        <span class="tag tg-blue">BLE 4.2</span>
+        <span class="tag tg-blue">DMA</span>
+        <span class="tag tg-blue">HAL</span>
+        <span class="tag tg-blue">Low power</span>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <div class="pcard-top">
+        <div class="pcard-accent">
+          <span class="pcard-num">02 · NIR Spectroscopy</span>
+          <div class="pcard-icon ic-teal"><i class="ti ti-wave-sine" aria-hidden="true"></i></div>
+        </div>
+        <p class="pcard-title">Portable NIR Spectroscopy — Plastic Identification</p>
+        <p class="pcard-platform">STM32WB55 · InGaAs · MEMS NIR · Fixed-Point DSP</p>
+        <p class="pcard-desc">Handheld IoT device identifying PET, HDPE, PVC plastics. InGaAs detector with custom optical front-end, real-time fixed-point DSP, BLE data offload, deep sleep operation.</p>
+      </div>
+      <div class="pcard-footer">
+        <span class="tag tg-teal">STM32WB55</span>
+        <span class="tag tg-teal">InGaAs</span>
+        <span class="tag tg-teal">DSP</span>
+        <span class="tag tg-teal">BLE</span>
+        <span class="tag tg-teal">Deep sleep</span>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <div class="pcard-top">
+        <div class="pcard-accent">
+          <span class="pcard-num">03 · Photon Detection</span>
+          <div class="pcard-icon ic-purple"><i class="ti ti-bulb" aria-hidden="true"></i></div>
+        </div>
+        <p class="pcard-title">Fluorescence Intensity Measurement Device</p>
+        <p class="pcard-platform">ESP32 · SiPM · ADC Pipeline · UART / I2C</p>
+        <p class="pcard-desc">DAQ firmware for SiPM sensors on ESP32. ADC and digital filtering pipeline for photon detection with fixed curve-fitting calibration for precise signal processing.</p>
+      </div>
+      <div class="pcard-footer">
+        <span class="tag tg-purple">ESP32</span>
+        <span class="tag tg-purple">SiPM</span>
+        <span class="tag tg-purple">ADC</span>
+        <span class="tag tg-purple">Calibration</span>
+        <span class="tag tg-purple">UART</span>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <div class="pcard-top">
+        <div class="pcard-accent">
+          <span class="pcard-num">04 · Radiation Survey</span>
+          <div class="pcard-icon ic-coral"><i class="ti ti-radioactive" aria-hidden="true"></i></div>
+        </div>
+        <p class="pcard-title">Radiation Survey Meter — Centre Product</p>
+        <p class="pcard-platform">STM32 · ILI9341 · LVGL · SPI SD Card</p>
+        <p class="pcard-desc">PIN diode-based radiation detection with SPI SD card data logging, TFT display via ILI9341 driver and LVGL UI library. Core modules built in Embedded C on STM32CubeIDE.</p>
+      </div>
+      <div class="pcard-footer">
+        <span class="tag tg-coral">STM32</span>
+        <span class="tag tg-coral">PIN diode</span>
+        <span class="tag tg-coral">LVGL</span>
+        <span class="tag tg-coral">SPI</span>
+        <span class="tag tg-coral">SD card</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-head">
+    <span class="section-head-label">Technical skills</span>
+    <div class="section-head-line"></div>
+  </div>
+
+  <div class="skills-grid">
+    <div class="sblock">
+      <p class="sblock-label">Languages</p>
+      <p class="sblock-items">Embedded C · C++</p>
+    </div>
+    <div class="sblock">
+      <p class="sblock-label">RTOS / OS</p>
+      <p class="sblock-items">FreeRTOS · Bare metal · Linux</p>
+    </div>
+    <div class="sblock">
+      <p class="sblock-label">MCUs</p>
+      <p class="sblock-items">STM32L162 · STM32WB55 · ESP32 · Vega Aries · NodeMCU</p>
+    </div>
+    <div class="sblock">
+      <p class="sblock-label">Protocols</p>
+      <p class="sblock-items">UART · SPI · I2C · QSPI · USB · BLE · Wi-Fi · MQTT · Ethernet</p>
+    </div>
+    <div class="sblock">
+      <p class="sblock-label">Peripherals</p>
+      <p class="sblock-items">ADC · DMA · RTC · PWM · Timers · Interrupts</p>
+    </div>
+    <div class="sblock">
+      <p class="sblock-label">Tools</p>
+      <p class="sblock-items">STM32CubeIDE · ESP-IDF · VS Code · SWD/JTAG · Git</p>
+    </div>
+    <div class="sblock">
+      <p class="sblock-label">Sensors</p>
+      <p class="sblock-items">InGaAs · SiPM · PIN diode · VOC · Load sensors</p>
+    </div>
+    <div class="sblock">
+      <p class="sblock-label">Equipment</p>
+      <p class="sblock-items">DSO · Multimeter · Logic analyzer · BLE sniffer</p>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <span class="section-head-label">Experience</span>
+    <div class="section-head-line"></div>
+  </div>
+
+  <div class="exp-block">
+    <div class="exp-dot"><i class="ti ti-cpu" aria-hidden="true"></i></div>
+    <div>
+      <p class="exp-org">C-DAC CINE · IIT Guwahati</p>
+      <p class="exp-role">Embedded Firmware Engineer (Project Associate)</p>
+      <p class="exp-date">Feb 2024 – Present · Guwahati, India</p>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <span class="footer-name">Ajinkya Jadhav</span>
+    <span class="footer-contact">jadhavajinkya1306@gmail.com · +91-7774807127</span>
+  </div>
+
+</div>
